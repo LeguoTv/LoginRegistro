@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login e Cadastro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      display: none;
+    }
+
+    .container.active {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .link {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela de Login -->
+  <div class="container active" id="loginContainer">
+    <h2>Login</h2>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Senha" required>
+    <button>Entrar</button>
+    <span class="link" onclick="mostrarCadastro()">Cadastrar</span>
+  </div>
+
+  <!-- Tela de Cadastro -->
+  <div class="container" id="cadastroContainer">
+    <h2>Cadastro</h2>
+    <input type="text" placeholder="Nome" required>
+    <input type="text" placeholder="Sobrenome" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Senha" required>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <span class="link" onclick="mostrarLogin()">Voltar ao Login</span>
+  </div>
+
+  <script>
+    function mostrarCadastro() {
+      document.getElementById('loginContainer').classList.remove('active');
+      document.getElementById('cadastroContainer').classList.add('active');
+    }
+
+    function mostrarLogin() {
+      document.getElementById('cadastroContainer').classList.remove('active');
+      document.getElementById('loginContainer').classList.add('active');
+    }
+
+    function cadastrar() {
+      alert("Usuário cadastrado com sucesso!");
+      mostrarLogin();
+    }
+  </script>
+
+</body>
+</html>
